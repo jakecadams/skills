@@ -62,7 +62,29 @@ diff "$HOME/.claude/settings.json.bak" "$HOME/.claude/settings.json" || true
 
 Confirm the file is still valid JSON before moving on.
 
-## Step 4: Offer to record their conventions
+## Step 4: Check for a hook that now duplicates the plugin's
+
+The plugin ships a `PreToolUse` hook that injects the commit and pull request
+rules when a session is about to run `git commit` or `gh pr create`. Installing
+the plugin enables it. It blocks nothing.
+
+Some people wrote their own version of this before installing. Two hooks doing
+the same job inject the rules twice.
+
+```bash
+python3 -c "import json,os;d=json.load(open(os.path.expanduser('~/.claude/settings.json')));print(json.dumps(d.get('hooks',{}),indent=2))"
+```
+
+If a `PreToolUse` hook points at a script whose name suggests commit or writing
+style, read that script. If it does the same job as
+`${CLAUDE_PLUGIN_ROOT}/hooks/commit-context.sh`, tell the user it is now
+redundant and offer to remove the entry from `settings.json`. Back the file up
+first and show the diff. Leave the script on disk; removing the entry is
+enough, and it is theirs.
+
+Do not touch a hook that does something else.
+
+## Step 5: Offer to record their conventions
 
 The plugin ships knowing nothing about their organization. Ask whether they
 have any of these, and offer to append a section to their `CLAUDE.md`:
@@ -76,7 +98,7 @@ If they give you any, append a `## Writing conventions` section listing them.
 Ask which `CLAUDE.md` to edit when more than one applies. Skip this step
 without comment if they have none.
 
-## Step 5: Report
+## Step 6: Report
 
 Tell them, in plain sentences:
 

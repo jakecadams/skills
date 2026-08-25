@@ -33,8 +33,16 @@ There is also `/jakecadams-skills:check-writing`, which reviews a file, a pasted
 draft, or your most recent draft and reports what it would change. It
 reports only. It never edits.
 
-`/jakecadams-skills:setup` turns on the output style and records your conventions. Run
-it once after installing.
+A `PreToolUse` hook injects the commit and pull request rules when a session
+is about to run `git commit` or `gh pr create`. It blocks nothing, and
+installing the plugin enables it. It exists because the commit-messages skill
+fires when you ask for a commit message, not when a session reaches
+`git commit` after doing something else, which is where rushed messages come
+from.
+
+`/jakecadams-skills:setup` turns on the output style, retires any hook of your
+own that now duplicates the plugin's, and records your conventions. Run it once
+after installing.
 
 An output style, `output-styles/writing-style.md`, covers the agent's replies
 to you. A skill loads when a task matches its description, and an ordinary
@@ -167,9 +175,13 @@ Add a section like this to your `CLAUDE.md`:
 ## What this deliberately does not do
 
 It does not install git hooks, and it does not reject a commit. An earlier
-version did both. Hooks force every teammate to opt into a standard they
+version did both. Git hooks force every teammate to opt into a standard they
 never agreed to, and they cost a `direnv` re-approval across the team, so
 they came out.
+
+The `PreToolUse` hook is a different mechanism and keeps none of that cost. It
+runs inside your own Claude Code session, changes no git configuration, and
+reaches no one else. It adds context and never rejects anything.
 
 The replacement is inside the skills: each one ends with a self-check the
 agent runs on its own draft before it hands the text over. If you want a
