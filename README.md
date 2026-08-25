@@ -29,11 +29,11 @@ no terminal and no repository involved.
 Each skill is standalone. It triggers on its own surface, so the commit
 rules never load when you are writing a help article.
 
-There is also `/skills:check-writing`, which reviews a file, a pasted
+There is also `/jakecadams:check-writing`, which reviews a file, a pasted
 draft, or your most recent draft and reports what it would change. It
 reports only. It never edits.
 
-`/skills:setup` turns on the output style and records your conventions. Run
+`/jakecadams:setup` turns on the output style and records your conventions. Run
 it once after installing.
 
 An output style, `output-styles/writing-style.md`, covers the agent's replies
@@ -44,10 +44,10 @@ reply matches none of them, so the skills alone leave that surface unguided.
 
 ```
 /plugin marketplace add jakecadams/skills
-/plugin install skills@jakecadams
+/plugin install jakecadams@skills
 ```
 
-Then run `/skills:setup`. Installing gives you the skills and commands.
+Then run `/jakecadams:setup`. Installing gives you the skills and commands.
 Setup turns on the output style, which governs Claude's replies to you, and
 records your organization's conventions.
 
@@ -55,7 +55,7 @@ To try it from a local clone instead:
 
 ```
 /plugin marketplace add /path/to/skills
-/plugin install skills@jakecadams
+/plugin install jakecadams@skills
 ```
 
 ## Install for the Claude desktop or web app
@@ -68,7 +68,7 @@ Build the archive, then upload it as one plugin:
 
 1. Open Settings, then Plugins, under Customize.
 2. Choose Add, then Upload local plugin.
-3. Select `build/skills.zip`.
+3. Select `build/jakecadams.zip`.
 
 One upload installs all three skills and the check command.
 
@@ -98,7 +98,7 @@ the word and voice rules carry across.
 Run the setup command and it does all of this for you:
 
 ```
-/skills:setup
+/jakecadams:setup
 ```
 
 It reports which style is active now, explains the trade-off, asks before it
@@ -173,7 +173,7 @@ they came out.
 
 The replacement is inside the skills: each one ends with a self-check the
 agent runs on its own draft before it hands the text over. If you want a
-harder check, run `/skills:check-writing` on your own writing. If you want
+harder check, run `/jakecadams:check-writing` on your own writing. If you want
 to know how often the rules get broken, run it for two weeks and keep a
 tally. That is the same signal a hook would give you, with no blast radius.
 
