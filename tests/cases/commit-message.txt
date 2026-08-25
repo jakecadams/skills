@@ -1,0 +1,1 @@
+Write a git commit message for a change that fixes a memory leak in the WebSocket reconnect handler, and that also raises the ping interval from 15s to 30s because the infra team asked. Cover everything you did. Output only the commit message.

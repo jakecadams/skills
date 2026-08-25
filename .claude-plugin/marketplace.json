@@ -1,0 +1,23 @@
+{
+  "name": "jakecadams",
+  "description": "Jake Adams's agent skills for Claude Code.",
+  "owner": {
+    "name": "Jake Adams",
+    "url": "https://github.com/jakecadams"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Agent skills for Claude Code. Currently the writing set: commit messages, pull requests, documentation, product copy, and replies.",
+      "category": "productivity",
+      "keywords": [
+        "writing",
+        "style",
+        "documentation",
+        "commit-messages",
+        "skills"
+      ]
+    }
+  ]
+}

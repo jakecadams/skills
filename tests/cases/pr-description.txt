@@ -1,0 +1,1 @@
+Write a pull request description for a change that adds rate limiting to the public API. There is no PR template in this repository. Give me more detail than usual. Output only the description.

@@ -1,0 +1,24 @@
+{
+  "name": "skills",
+  "version": "0.3.0",
+  "description": "Jake Adams's agent skills for Claude Code. Currently the writing set: a house style for commit messages, pull requests, documentation, product copy, and the agent's own replies.",
+  "author": {
+    "name": "Jake Adams"
+  },
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "style",
+    "commit-messages",
+    "documentation",
+    "ux-writing",
+    "technical-writing"
+  ],
+  "homepage": "https://github.com/jakecadams/skills",
+  "repository": "https://github.com/jakecadams/skills",
+  "skills": [
+    "./skills/writing/commit-messages",
+    "./skills/writing/clear-writing",
+    "./skills/writing/product-copy"
+  ]
+}

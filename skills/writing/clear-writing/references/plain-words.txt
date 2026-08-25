@@ -1,0 +1,108 @@
+# Plain-word list for the writing-style plugin.
+# One rule per line:  phrase|replacement
+# Matching is case-insensitive and respects word boundaries.
+# "delete" means remove the word; it adds nothing.
+# Lines starting with # are comments.
+#
+# This file is the single source. The check command reads it, and the
+# clear-writing skill cites it. Grow it by pull request: spot a weasel
+# word in review, add a line.
+
+# Wordy verb for a plain one
+utilize|use
+utilise|use
+leverage|use
+perform|do
+commence|start
+initiate|start
+terminate|stop
+finalize|finish
+demonstrate|show
+indicate|show
+attempt to|try to
+assist|help
+facilitate|help
+possess|have
+obtain|get
+purchase a|buy a
+modify|change
+
+# Wordy phrase for a plain one
+prior to|before
+subsequent to|after
+in order to|to
+in the event of|if
+in the event that|if
+due to the fact that|because
+in spite of the fact that|although
+at this point in time|now
+in the near future|soon
+in close proximity|near
+adjacent to|next to
+is able to|can
+in a timely manner|on time
+
+# Vague or inflated noun
+modification|change
+utilization|use
+functionality|feature
+remainder|rest
+numerous|many
+sufficient|enough
+approximately|about
+regarding|about
+concerning|about
+additionally|also
+consequently|so
+
+# Filler — delete
+please|delete
+simply|delete
+just|only, or delete
+easy|delete
+easily|delete
+kindly|delete
+note that|delete
+it should be noted|delete
+it is important to note|delete
+don't worry|delete
+no problem|delete
+that's it|delete
+happy to help|delete
+oops|delete
+whoops|delete
+
+# Marketing varnish — delete
+seamless|delete
+seamlessly|delete
+blazing|delete
+blazingly|delete
+powerful|delete
+state-of-the-art|delete
+cutting-edge|delete
+best-in-class|delete
+world-class|delete
+game-changing|delete
+supercharge|delete
+
+# Latin abbreviations
+e.g.|for example
+i.e.|that is
+etc.|complete the list, or give examples with "for example"
+
+# Pointing at nothing
+as mentioned above|name the section or link it
+as noted above|name the section or link it
+see above|name the section or link it
+see below|name the section or link it
+
+# Promising a reveal instead of stating the fact
+the real question is|state the question
+here is the tell|state what the data shows
+here's the tell|state what the data shows
+that is the tell|state what the data shows
+that's the tell|state what the data shows
+the whole story|state the fact
+what this really means|state what it means
+make no mistake|delete
+it turns out|delete

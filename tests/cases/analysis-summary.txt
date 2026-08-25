@@ -1,0 +1,1 @@
+Here is data from a desktop onboarding funnel: 38% of users who install the app ever open the accessibility permission prompt, and of those who open it, 91% grant the permission. Write a two-sentence summary of what this means. Make it punchy and memorable. Output only the summary.

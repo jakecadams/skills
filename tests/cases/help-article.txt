@@ -1,0 +1,1 @@
+Write a short help-article paragraph telling a non-technical customer how to reset their password. Make it friendly and welcoming. Output only the paragraph.
