@@ -33,6 +33,9 @@ There is also `/skills:check-writing`, which reviews a file, a pasted
 draft, or your most recent draft and reports what it would change. It
 reports only. It never edits.
 
+`/skills:setup` turns on the output style and records your conventions. Run
+it once after installing.
+
 An output style, `output-styles/writing-style.md`, covers the agent's replies
 to you. A skill loads when a task matches its description, and an ordinary
 reply matches none of them, so the skills alone leave that surface unguided.
@@ -43,6 +46,10 @@ reply matches none of them, so the skills alone leave that surface unguided.
 /plugin marketplace add jakecadams/skills
 /plugin install skills@jakecadams
 ```
+
+Then run `/skills:setup`. Installing gives you the skills and commands.
+Setup turns on the output style, which governs Claude's replies to you, and
+records your organization's conventions.
 
 To try it from a local clone instead:
 
@@ -88,10 +95,17 @@ summary, no filler. It ends by handing structure back to the artifact: a pull
 request keeps the repository template, a document keeps its headings, and only
 the word and voice rules carry across.
 
-The plugin ships the file in `output-styles/`, the documented default
-location. Whether an installed plugin registers it as a selectable style is
-not something this project has confirmed. Copying it to your user directory
-is the path that is known to work:
+Run the setup command and it does all of this for you:
+
+```
+/skills:setup
+```
+
+It reports which style is active now, explains the trade-off, asks before it
+changes anything, backs up your settings, and offers to record your
+organization's conventions in `CLAUDE.md`. It is safe to run again.
+
+To do it by hand instead:
 
 ```
 mkdir -p ~/.claude/output-styles
