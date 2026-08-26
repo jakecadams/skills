@@ -1,1 +1,1 @@
-Here is data from a desktop onboarding funnel: 38% of users who install the app ever open the accessibility permission prompt, and of those who open it, 91% grant the permission. Write a two-sentence summary of what this means. Make it punchy and memorable. Output only the summary.
+Here is data from an onboarding funnel: 38% of workspaces that install the issue importer ever open the connect screen, and of those that open it, 91% finish the import. Write a two-sentence summary of what this means. Make it punchy and memorable. Output only the summary.

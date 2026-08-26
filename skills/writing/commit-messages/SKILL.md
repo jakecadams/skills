@@ -14,13 +14,18 @@ The diff already shows how.
 
 Core principle: the reader gets information, not decoration.
 
+**When not to use:** for documentation, help articles, and
+announcements, use the clear-writing skill. For text inside a product
+interface, use the product-copy skill.
+
 ## The seven rules
 
 1. Separate subject from body with a blank line.
 2. Subject is 50 characters or fewer. 72 is the hard cap.
 3. Capitalize the subject.
 4. No period at the end of the subject.
-5. Imperative mood. Test: "If applied, this commit will ___" must read as a sentence.
+5. Imperative mood. Test: "If applied, this commit will ___" must read
+   as a sentence.
 6. Wrap body lines at 72 characters.
 7. The body explains what and why.
 

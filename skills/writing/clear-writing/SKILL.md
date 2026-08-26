@@ -16,7 +16,8 @@ style guide.
 Core principle: the reader gets information, not decoration.
 
 **When not to use:** casual chat messages keep their own tone.
-For text inside a product interface, use the product-copy skill.
+For text inside a product interface, use the product-copy skill. For
+commit messages and pull requests, use the commit-messages skill.
 
 ## Structure
 
@@ -28,8 +29,8 @@ For text inside a product interface, use the product-copy skill.
 - A warning comes before the instruction it protects, and reads as a
   command: "Do not run the backfill on a weekday."
 - No more than three nouns in a row. Break a noun cluster with "of",
-  "for", or a hyphen: "the setup flow for the meeting recorder", not
-  "the meeting recorder capture setup flow".
+  "for", or a hyphen: "the setup flow for the issue importer", not
+  "the issue importer configuration setup flow".
 - Use simple verb forms: imperative, simple present, simple past.
   Avoid -ing forms when a simple form works: "when the upload stops",
   not "upon the upload stopping".
@@ -45,7 +46,7 @@ For text inside a product interface, use the product-copy skill.
 - Address the reader as "you".
 - One term, one meaning. Call a thing the same name everywhere.
 - Keep the names your source material uses. Do not rename something in
-  passing (a "recording link" does not become a "meeting link").
+  passing (an "issue link" does not become a "ticket link").
 - Use the verb, not its noun: "check the cable", not "perform a check
   of the cable"; "back up the directory", not "perform a backup".
 - "can" is ability, "might" is possibility, "must" is a requirement.
@@ -112,14 +113,14 @@ Avoid these shapes:
 Every sentence must add a fact, a number, a condition, or a consequence. If a
 sentence would survive deletion without losing information, delete it.
 
-> **Before:** But 91% grant once they start: the loss is at the door, not in
-> the OS dialogs. Accessibility is the door.
+> **Before:** But 91% finish once they start: the loss is at the door, not in
+> the import steps. The connect screen is the door.
 >
-> **After:** 91% of users who start the permission flow grant accessibility.
-> The drop-off happens before the flow starts, not inside the OS dialogs.
+> **After:** 91% of workspaces that start the import finish it. The drop-off
+> happens before the import starts, not inside its steps.
 
 The rewrite keeps both facts and drops the metaphor, the antithesis, and the
-echo. It is shorter and says more.
+echo.
 
 ## Two examples
 

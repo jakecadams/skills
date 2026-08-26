@@ -2,7 +2,8 @@
 
 Agent skills for Claude Code, by [Jake Adams](https://github.com/jakecadams).
 
-One plugin, one install. New skills arrive with `claude plugin update`.
+Everything ships as one plugin, so you install once. New skills arrive
+with `claude plugin update`.
 
 ## The writing set
 
@@ -29,9 +30,9 @@ no terminal and no repository involved.
 Each skill is standalone. It triggers on its own surface, so the commit
 rules never load when you are writing a help article.
 
-There is also `/jakecadams-skills:check-writing`, which reviews a file, a pasted
-draft, or your most recent draft and reports what it would change. It
-reports only. It never edits.
+There is also `/jakecadams-skills:check-writing`, which reviews a file, a
+pasted draft, or your most recent draft and reports what it would change.
+It never edits.
 
 A `PreToolUse` hook injects the commit and pull request rules when a session
 is about to run `git commit` or `gh pr create`. It blocks nothing, and
@@ -40,13 +41,12 @@ fires when you ask for a commit message, not when a session reaches
 `git commit` after doing something else, which is where rushed messages come
 from.
 
-`/jakecadams-skills:setup` turns on the output style, retires any hook of your
-own that now duplicates the plugin's, and records your conventions. Run it once
-after installing.
+`/jakecadams-skills:setup` turns on the output style, retires any hook of
+your own that now duplicates the plugin's, and records your conventions.
+Run it once after installing.
 
 An output style, `output-styles/writing-style.md`, covers the agent's replies
-to you. A skill loads when a task matches its description, and an ordinary
-reply matches none of them, so the skills alone leave that surface unguided.
+to you, which the skills alone do not reach.
 
 ## Install for Claude Code
 
@@ -55,9 +55,8 @@ reply matches none of them, so the skills alone leave that surface unguided.
 /plugin install jakecadams-skills@jakecadams
 ```
 
-Then run `/jakecadams-skills:setup`. Installing gives you the skills and commands.
-Setup turns on the output style, which governs Claude's replies to you, and
-records your organization's conventions.
+Then run `/jakecadams-skills:setup` to turn on the output style and record
+your conventions.
 
 To try it from a local clone instead:
 
@@ -76,9 +75,11 @@ Build the archive, then upload it as one plugin:
 
 1. Open Settings, then Plugins, under Customize.
 2. Choose Add, then Upload local plugin.
-3. Select `build/jakecadams-skills.zip`.
+3. Select the whole-plugin archive that `package.sh` printed.
 
-One upload installs all three skills and the check command.
+One upload installs all three skills and the check command. The setup
+command is Claude Code only, because the desktop and web apps have no
+output styles.
 
 The uploader rejects an archive that contains another archive, so never
 zip the folder while `build/` is inside it. `scripts/package.sh` excludes
@@ -169,7 +170,7 @@ Add a section like this to your `CLAUDE.md`:
 - Pull request titles start with the ticket ID: `[ENG-1234]`.
 - Product copy follows `docs/COPY.md` where it disagrees with the
   product-copy skill.
-- Never rename these features in prose: Recording Link, Smart Topic.
+- Never rename these features in prose: Saved View, Sprint Board.
 ```
 
 ## What this deliberately does not do
@@ -185,15 +186,16 @@ reaches no one else. It adds context and never rejects anything.
 
 The replacement is inside the skills: each one ends with a self-check the
 agent runs on its own draft before it hands the text over. If you want a
-harder check, run `/jakecadams-skills:check-writing` on your own writing. If you want
-to know how often the rules get broken, run it for two weeks and keep a
-tally. That is the same signal a hook would give you, with no blast radius.
+harder check, run `/jakecadams-skills:check-writing` on your own writing.
+If you want to know how often the rules get broken, run it for two weeks
+and keep a tally. That is the same signal a hook would give you, without
+forcing it on anyone else.
 
 ## The plain-word list
 
-`skills/writing/clear-writing/references/plain-words.txt` is the single source for
-banned words and their replacements. The checker reads it and the
-`clear-writing` skill cites it.
+`skills/writing/clear-writing/references/plain-words.txt` is the single
+source for banned words and their replacements. The checker reads it and
+the `clear-writing` skill cites it.
 
 Grow it by pull request. Spot a weasel word in review, add a line:
 
@@ -227,8 +229,8 @@ tests/cases/                   pressure prompts
 ```
 
 Skills sit under a domain folder, so a future set lands in `skills/<domain>/`
-and reaches everyone on their next `claude plugin update`. Nested paths are not
-auto-discovered, so add each new skill to the `skills` array in
+and reaches everyone on their next `claude plugin update`. Nested paths are
+not auto-discovered, so add each new skill to the `skills` array in
 `.claude-plugin/plugin.json`.
 
 ## License
