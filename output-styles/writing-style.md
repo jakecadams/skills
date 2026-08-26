@@ -1,5 +1,4 @@
 ---
-name: Writing Style
 description: Plain, direct replies. Lead with the answer, no decoration, no filler.
 keep-coding-instructions: true
 ---
