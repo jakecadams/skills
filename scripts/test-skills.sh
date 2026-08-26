@@ -2,7 +2,7 @@
 # Run the pressure cases in tests/cases/ through a fresh headless session and
 # check the output against the rules the skills teach.
 #
-# Each case name carries the pressure that broke the baseline: "cover
+# Each case name carries the pressure that breaks unguided writing: "cover
 # everything you did", "make it friendly", "be apologetic", "more detail".
 #
 # Usage: ./scripts/test-skills.sh [case-name ...]

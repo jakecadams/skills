@@ -65,8 +65,8 @@ Confirm the file is still valid JSON before moving on.
 ## Step 4: Check for a hook that now duplicates the plugin's
 
 The plugin ships a `PreToolUse` hook that injects the commit and pull request
-rules when a session is about to run `git commit` or `gh pr create`. Installing
-the plugin enables it. It blocks nothing.
+rules when a session is about to run `git commit` or `gh pr create`.
+Installing the plugin enables it. It blocks nothing.
 
 Some people wrote their own version of this before installing. Two hooks doing
 the same job inject the rules twice.
@@ -75,8 +75,8 @@ the same job inject the rules twice.
 python3 -c "import json,os;d=json.load(open(os.path.expanduser('~/.claude/settings.json')));print(json.dumps(d.get('hooks',{}),indent=2))"
 ```
 
-If a `PreToolUse` hook points at a script whose name suggests commit or writing
-style, read that script. If it does the same job as
+If a `PreToolUse` hook points at a script whose name suggests commit or
+writing style, read that script. If it does the same job as
 `${CLAUDE_PLUGIN_ROOT}/hooks/commit-context.sh`, tell the user it is now
 redundant and offer to remove the entry from `settings.json`. Back the file up
 first and show the diff. Leave the script on disk; removing the entry is
@@ -104,8 +104,8 @@ Tell them, in plain sentences:
 
 - Which files you changed, by path
 - That the output style applies after they restart Claude Code, not now
-- That `/skills:check-writing` reviews a file or a draft and reports findings
-  without editing
+- That `/jakecadams-skills:check-writing` reviews a file or a draft and
+  reports findings without editing
 - How to undo it: delete `~/.claude/output-styles/writing-style.md` and remove
   the `outputStyle` key, or pick a different style under `/config`
 

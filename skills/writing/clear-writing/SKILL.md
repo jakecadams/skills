@@ -16,7 +16,8 @@ style guide.
 Core principle: the reader gets information, not decoration.
 
 **When not to use:** casual chat messages keep their own tone.
-For text inside a product interface, use the product-copy skill.
+For text inside a product interface, use the product-copy skill. For
+commit messages and pull requests, use the commit-messages skill.
 
 ## Structure
 
@@ -119,7 +120,7 @@ sentence would survive deletion without losing information, delete it.
 > The drop-off happens before the flow starts, not inside the OS dialogs.
 
 The rewrite keeps both facts and drops the metaphor, the antithesis, and the
-echo. It is shorter and says more.
+echo.
 
 ## Two examples
 

@@ -127,7 +127,7 @@ Run this on your draft. Fix what fails, then output.
 
 1. Does the first sentence state a fact, not a feeling?
 2. Are all three parts present: what happened, why, what to do?
-3. Is the action specific enough to perform without asking anyone?
+3. Is the action specific enough to do without asking anyone?
 4. Does the button label name the action in the same words as the text
    above it?
 5. Scan for: please, simply, just, easy, Oops, "!"

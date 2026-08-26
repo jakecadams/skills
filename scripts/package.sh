@@ -1,7 +1,7 @@
 #!/bin/sh
 # Build upload archives into build/.
 #
-#   build/writing-style.zip        the whole plugin, for Settings > Plugins
+#   build/<repo-folder>.zip        the whole plugin, for Settings > Plugins
 #   build/skills/<name>.zip        one skill each, for Settings > Skills
 #
 # The plugin archive excludes build/ so it never contains a nested zip.
