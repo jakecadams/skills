@@ -47,10 +47,11 @@ Two live processes appending to one transcript interleave their writes, so the t
    ```bash
    CLAUDE_BIN=$(command -v claude)
    tmux new-session -d -s "<name>" -c "$PWD" \
-     "while kill -0 <claude-pid> 2>/dev/null; do sleep 0.5; done; exec $CLAUDE_BIN --resume <session-id> --name '<name>'"
+     "trap ':' INT; echo 'Waiting for the old Claude session to exit. /exit it and this pane resumes it.'; while kill -0 <claude-pid> 2>/dev/null; do sleep 0.5; done; trap - INT; exec $CLAUDE_BIN --resume <session-id> --name '<name>'"
    ```
 
    `--name` sets the Claude session's display name (prompt box, terminal title, `/resume` picker) to match the tmux session.
+   `trap ':' INT` keeps a stray Ctrl+C in the waiting pane from killing the handoff; the `trap - INT` reset before `exec` hands normal signal handling back to claude.
 
 5. **Copy the attach command to the clipboard and tell the user how to complete the handoff.**
 
@@ -58,7 +59,7 @@ Two live processes appending to one transcript interleave their writes, so the t
    printf 'tmux attach -t <name>' | pbcopy
    ```
 
-   The tmux pane stays blank on purpose until this session exits — that is the guard.
+   The tmux pane shows the waiting message until this session exits — that is the guard.
    Tell the user: the attach command is on their clipboard — exit here (`/exit`), then paste and run it.
    (If they are already inside tmux, `tmux switch-client -t <name>` instead.)
    To abort instead: `tmux kill-session -t <name>`.
@@ -73,3 +74,4 @@ Two live processes appending to one transcript interleave their writes, so the t
 | Nonce echo and grep in one Bash call | The result may not be flushed to the transcript yet. Two separate calls. |
 | Bare `claude` in the tmux command | tmux may spawn a shell without your PATH. Resolve with `command -v claude` first. |
 | Adding `--fork-session` "to be safe" | That creates a NEW session ID and leaves the original behind. Only for when the user wants a copy, not a move. |
+| A silent guard pane | A user who attaches early sees a blank pane, and Ctrl+C kills the handoff. Print the waiting message and trap INT until the resume. |
