@@ -48,6 +48,21 @@ Run it once after installing.
 An output style, `output-styles/writing-style.md`, covers the agent's replies
 to you, which the skills alone do not reach.
 
+## The tmux handoff skill
+
+`/tmux-handoff <name>` moves the current Claude Code session into a new
+named tmux session, so the session survives a closed terminal. Omit the
+name and the skill derives one from the current work.
+
+The skill confirms the session ID by writing a nonce into the transcript
+and finding it again. It then creates a detached tmux session that waits
+for the current process to exit and resumes the same session under the
+same name. The wait prevents two live processes from interleaving writes
+into one transcript. The skill copies the attach command to your
+clipboard; exit the old session, then paste to attach.
+
+This skill is Claude Code only, and it assumes macOS and tmux.
+
 ## Install for Claude Code
 
 ```
@@ -77,9 +92,9 @@ Build the archive, then upload it as one plugin:
 2. Choose Add, then Upload local plugin.
 3. Select the whole-plugin archive that `package.sh` printed.
 
-One upload installs all three skills and the check command. The setup
-command is Claude Code only, because the desktop and web apps have no
-output styles.
+One upload installs the three writing skills and the check command. The
+setup command and the tmux handoff skill are Claude Code only: the
+desktop and web apps have no output styles and no terminal.
 
 The uploader rejects an archive that contains another archive, so never
 zip the folder while `build/` is inside it. `scripts/package.sh` excludes
