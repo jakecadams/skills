@@ -59,7 +59,9 @@ and finding it again. It then creates a detached tmux session that waits
 for the current process to exit and resumes the same session under the
 same name. The wait prevents two live processes from interleaving writes
 into one transcript. The skill copies the attach command to your
-clipboard; exit the old session, then paste to attach.
+clipboard; exit the old session, then paste to attach. The resumed
+session starts with permissions bypassed
+(`--dangerously-skip-permissions`).
 
 This skill is Claude Code only, and it assumes macOS and tmux.
 

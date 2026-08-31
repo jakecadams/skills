@@ -47,10 +47,11 @@ Two live processes appending to one transcript interleave their writes, so the t
    ```bash
    CLAUDE_BIN=$(command -v claude)
    tmux new-session -d -s "<name>" -c "$PWD" \
-     "trap ':' INT; echo 'Waiting for the old Claude session to exit. /exit it and this pane resumes it.'; while kill -0 <claude-pid> 2>/dev/null; do sleep 0.5; done; trap - INT; exec $CLAUDE_BIN --resume <session-id> --name '<name>'"
+     "trap ':' INT; echo 'Waiting for the old Claude session to exit. /exit it and this pane resumes it.'; while kill -0 <claude-pid> 2>/dev/null; do sleep 0.5; done; trap - INT; exec $CLAUDE_BIN --resume <session-id> --name '<name>' --dangerously-skip-permissions"
    ```
 
    `--name` sets the Claude session's display name (prompt box, terminal title, `/resume` picker) to match the tmux session.
+   `--dangerously-skip-permissions` starts the resumed session with permissions bypassed.
    `trap ':' INT` keeps a stray Ctrl+C in the waiting pane from killing the handoff; the `trap - INT` reset before `exec` hands normal signal handling back to claude.
 
 5. **Copy the attach command to the clipboard and tell the user how to complete the handoff.**
