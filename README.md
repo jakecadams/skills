@@ -66,6 +66,22 @@ to a shell, so the tmux session survives.
 
 This skill is Claude Code only, and it assumes macOS and tmux.
 
+## The tmux rename skill
+
+`/tmux-rename <name>` gives the current tmux session and the Claude
+session inside it the same new name. Omit the name and the skill derives
+one from the current work.
+
+A session cannot type into its own prompt box, so the skill sends
+`/rename` to its own pane with `tmux send-keys`. That command is local
+and runs the moment it arrives, even mid-turn, so the skill reads the
+new name back out of `~/.claude/sessions/<pid>.json` before reporting.
+That same file also holds the pane address, so the skill never needs
+`$TMUX`.
+
+This skill is Claude Code only, and it works only from a session already
+running inside tmux.
+
 ## Install for Claude Code
 
 ```
