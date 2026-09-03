@@ -26,6 +26,7 @@ no terminal and no repository involved.
 | `commit-messages` | Commit messages, pull request titles and descriptions | Tim Pope, Chris Beams |
 | `clear-writing` | Docs, READMEs, help articles, release notes, announcements, memos, email | ASD-STE100, Google developer documentation style guide |
 | `product-copy` | Error messages, empty states, notifications, buttons | ASD-STE100, Google developer documentation style guide |
+| `to-ceo` | Status updates, decision briefs, reports someone has to act on | Completed staff work (1942), BLUF, Churchill, Minto, Grove |
 
 Each skill is standalone. It triggers on its own surface, so the commit
 rules never load when you are writing a help article.

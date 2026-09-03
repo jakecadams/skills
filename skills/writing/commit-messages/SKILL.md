@@ -16,7 +16,8 @@ Core principle: the reader gets information, not decoration.
 
 **When not to use:** for documentation, help articles, and
 announcements, use the clear-writing skill. For text inside a product
-interface, use the product-copy skill.
+interface, use the product-copy skill. For a report to a busy
+decision-maker, use the to-ceo skill.
 
 ## The seven rules
 

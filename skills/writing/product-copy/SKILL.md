@@ -16,7 +16,8 @@ Core principle: a clear fix path is the friendliest tone.
 
 **When not to use:** for documentation, help articles, and
 announcements, use the clear-writing skill. For commit messages and
-pull requests, use the commit-messages skill.
+pull requests, use the commit-messages skill. For a report to a busy
+decision-maker, use the to-ceo skill.
 
 ## Errors
 

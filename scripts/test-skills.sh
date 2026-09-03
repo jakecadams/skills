@@ -58,6 +58,22 @@ for name in $names; do
       if grep -qiE 'something went wrong' "$body"; then
         echo "  FAIL says \"something went wrong\""; fails=$((fails+1)); fi
       ;;
+    status-report)
+      if head -1 "$body" | grep -qiE '^(i |first|to start|let me|here)'; then
+        echo "  FAIL opens with narration"; fails=$((fails+1))
+      else echo "  ok   opens with the verdict"; fi
+      if head -3 "$body" | grep -qE '3%|3 %|rate limiter|drops'; then
+        echo "  ok   leads with the finding"
+      else echo "  FAIL finding is not in the first 3 lines"; fails=$((fails+1)); fi
+      if grep -qiE 'staging was down|not (been )?(verified|tested)|unverified|under real load' "$body"; then
+        echo "  ok   labels the unverified part"
+      else echo "  FAIL does not say what went unverified"; fails=$((fails+1)); fi
+      if grep -qiE 'approve|deploy|hold|ask:|recommend|no action needed' "$body"; then
+        echo "  ok   ends with an ask"
+      else echo "  FAIL names no ask"; fails=$((fails+1)); fi
+      if grep -qiE '^i (searched|read|ran|started)|then i |after that' "$body"; then
+        echo "  FAIL narrates the process"; fails=$((fails+1)); fi
+      ;;
     help-article|pr-description)
       echo "  (prose case: word and pattern rules only)"
       ;;

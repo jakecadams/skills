@@ -23,6 +23,7 @@
     "./skills/writing/commit-messages",
     "./skills/writing/clear-writing",
     "./skills/writing/product-copy",
+    "./skills/writing/to-ceo",
     "./skills/claude-code/tmux-handoff",
     "./skills/claude-code/tmux-rename"
   ]
