@@ -1,6 +1,6 @@
 {
   "name": "jakecadams-skills",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "Jake Adams's agent skills for Claude Code. The writing set: a house style for commit messages, pull requests, documentation, product copy, reports to a busy decision-maker, and the agent's own replies. Plus tmux-handoff and tmux-rename, which move and rename tmux sessions and the Claude session inside them.",
   "author": {
     "name": "Jake Adams",
