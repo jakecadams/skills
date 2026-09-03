@@ -9,12 +9,13 @@
     {
       "name": "jakecadams-skills",
       "source": "./",
-      "description": "Agent skills for Claude Code. The writing set: commit messages, pull requests, documentation, product copy, and replies. Plus tmux-handoff and tmux-rename for moving and renaming tmux sessions.",
+      "description": "Agent skills for Claude Code. The writing set: commit messages, pull requests, documentation, product copy, reports to a busy decision-maker, and replies. Plus tmux-handoff and tmux-rename for moving and renaming tmux sessions.",
       "category": "productivity",
       "keywords": [
         "writing",
         "style",
         "documentation",
+        "reports",
         "commit-messages",
         "skills",
         "tmux"
