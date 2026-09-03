@@ -1,6 +1,6 @@
 ---
 name: to-ceo
-description: Use when reporting results, status, findings, or a recommendation to someone who has to act on it — a status update, a decision brief, a handoff, or an agent reporting back on finished work. Also use when asked for a to-CEO brief, an executive summary, or a report a busy person will skim.
+description: Use when reporting results, status, findings, or a recommendation to someone who has to act on it — a status update, a decision brief, a handoff, an agent reporting back on finished work, or any request for a to-CEO brief or an executive summary.
 ---
 
 <!-- writing-style:disable — this file quotes banned words on purpose -->
@@ -9,9 +9,9 @@ description: Use when reporting results, status, findings, or a recommendation t
 
 ## Overview
 
-The reader is holding a stack of these from coworkers and agents. They
-give it seconds, decide, and move on. Your thinking must be finished
-before it reaches them.
+A report like this one arrives in a stack of them from coworkers and
+agents. The reader gives it seconds, decides, and moves on. Your
+thinking must be finished before it reaches them.
 
 Core principle: the reader approves or rejects. They do not do your
 thinking, and they do not read your process.
@@ -38,14 +38,11 @@ in chat to one page.
    needed" — never silence.
 5. **Go deeper.** Links, file paths, an appendix. Detail is opt-in.
 
-Elements 3 and 4 are never optional. Dropping either one makes the
-reader guess, and they will guess wrong.
-
 ## The five rules
 
-**Verdict first.** The first sentence carries the answer. Reasoning
-follows it and never precedes it. If a deadline or a blank page stops
-you, write the most important sentence and start there.
+**Verdict first.** Reasoning follows the verdict and never precedes it.
+If a deadline or a blank page stops you, write the most important
+sentence and start there.
 
 **Recommend, don't ask.** Bring one proposed action — the best of all
 you considered — not a menu and not an open question. Propose even at
@@ -59,20 +56,20 @@ survive. The reader must hear it from you before any other channel
 carries it. Say what it costs them, not what it cost you to find.
 
 **Depth is opt-in.** Main points in short paragraphs. Analysis,
-statistics, and logs go to an appendix, a link, or a file path. The
-floor of the form is headings alone, expanded on request.
+statistics, and logs go elsewhere. The floor of the form is headings
+alone, expanded on request.
 
 **End with the ask.** Name the decision you need and when you need it.
 "No action needed" carries real information — it forecloses the
-inference that you are waiting on them. Silence does not.
+inference that you are waiting on them.
 
 ## Numbers, not adjectives
 
 Replace every evaluative word with the measurement behind it. Not
 "performance improved significantly" but "p95 dropped from 840ms to
 310ms". Not "most tests pass" but "14 of 15 pass; the failing one is
-`test_retry_backoff`". An adjective where a number exists reads as a
-number you did not go and get.
+`test_retry_backoff`". If a number exists and you have not measured it,
+measure it.
 
 ## What never appears
 
@@ -84,17 +81,11 @@ number you did not go and get.
 - The request restated back to the reader.
 - Effort as evidence. How hard it was is not a finding.
 
-## Two lengths, one standard
+## Two lengths
 
 A **report-back** is read in seconds: verdict, a few facts, risk, ask.
 A **decision document** is read in minutes and argued in full
 sentences, with the data in it rather than gestured at.
-
-The standard behind both is the same — the thinking is finished before
-the reader arrives. The report compresses finished thinking. It never
-substitutes for it. Compression is not the same as omission: if the
-work is not done, say that plainly instead of shipping a short report
-that reads as if it were.
 
 ## An example
 
@@ -121,9 +112,8 @@ that reads as if it were.
 > hold for a load test. I would deploy — the change is six lines and
 > reverts cleanly.
 
-The rewrite drops the narration, leads with the number, states the
-unverified part as what it costs the reader, and ends with a decision
-plus a recommendation.
+Note what the risk line does. It names what the reader will see and
+when, so the unverified part becomes testable instead of a disclaimer.
 
 ## Common mistakes
 
@@ -152,13 +142,14 @@ plus a recommendation.
 Run this on your draft. Fix what fails, then output.
 
 1. Does the first sentence carry the answer and its number?
-2. Is every risk stated as a cost to the reader?
+2. Is every risk stated as a cost to the reader, and is anything the
+   reader would not expect in there with them?
 3. Is the worst news in the first third?
 4. Is there exactly one recommendation, not a menu?
 5. Does it end in an ask or an explicit "no action needed"?
 6. Is anything unverified labeled as unverified?
 7. Would you sign this yourself and stake your reputation on it being
-   right? If not, work it over. It is not finished.
+   right? If not, work it over.
 
 ## Project instructions win
 
@@ -168,8 +159,7 @@ Elsewhere it means the project's custom instructions.
 
 Common overrides a project may set: a required status-report template,
 a fixed cadence and section list, or a house rule about where risks are
-recorded. Ask how the reader wants updates and honor that, even when it
-differs from this shape.
+recorded. Ask how the reader wants updates, and honor that.
 
 Sources: the US Army doctrine of completed staff work (1942);
 Army Regulation 25-50 (BLUF); Churchill, "Brevity" (1940); Barbara
