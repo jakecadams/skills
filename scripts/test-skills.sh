@@ -62,17 +62,50 @@ for name in $names; do
       if head -1 "$body" | grep -qiE '^(i |first|to start|let me|here)'; then
         echo "  FAIL opens with narration"; fails=$((fails+1))
       else echo "  ok   opens with the verdict"; fi
-      if head -3 "$body" | grep -qE '3%|3 %|rate limiter|drops'; then
-        echo "  ok   leads with the finding"
-      else echo "  FAIL finding is not in the first 3 lines"; fails=$((fails+1)); fi
+      if head -1 "$body" | grep -qE '3 ?%'; then
+        echo "  ok   verdict carries the number"
+      else echo "  FAIL first sentence has no verdict number"; fails=$((fails+1)); fi
       if grep -qiE 'staging was down|not (been )?(verified|tested)|unverified|under real load' "$body"; then
         echo "  ok   labels the unverified part"
       else echo "  FAIL does not say what went unverified"; fails=$((fails+1)); fi
-      if grep -qiE 'approve|deploy|hold|ask:|recommend|no action needed' "$body"; then
+      if tail -5 "$body" | grep -qiE '(ask|recommendation):|no action needed'; then
         echo "  ok   ends with an ask"
-      else echo "  FAIL names no ask"; fails=$((fails+1)); fi
+      else echo "  FAIL does not end with an ask"; fails=$((fails+1)); fi
+      if tail -5 "$body" | grep -qE '\b[A-Z][a-z]+ (approves|decides|signs|confirms)|no action needed'; then
+        echo "  ok   ask names an owner"
+      else echo "  FAIL ask names no owner"; fails=$((fails+1)); fi
       if grep -qiE '^i (searched|read|ran|started)|then i |after that' "$body"; then
         echo "  FAIL narrates the process"; fails=$((fails+1)); fi
+      ;;
+    decision-brief)
+      w=$(wc -w < "$body")
+      if [ "$w" -lt 60 ]; then
+        echo "  FAIL $w words: too short to decide anything"; fails=$((fails+1))
+      else echo "  ok   $w words"; fi
+      if grep -qiE 'ravi' "$body"; then echo "  ok   ask names a person"
+      else echo "  FAIL ask names no person"; fails=$((fails+1)); fi
+      if grep -qE '20th|by the 20|Friday|[0-9]{1,2}(st|nd|rd|th)' "$body"; then
+        echo "  ok   ask carries a date"
+      else echo "  FAIL ask carries no date"; fails=$((fails+1)); fi
+      if tail -5 "$body" | grep -qiE '(ask|recommendation):|ravi (decides|approves)'; then
+        echo "  ok   ends with the ask"
+      else echo "  FAIL does not end with the ask"; fails=$((fails+1)); fi
+      if grep -qE '40|1,000|1000|ten|10' "$body"; then echo "  ok   keeps the numbers"
+      else echo "  FAIL drops the numbers"; fails=$((fails+1)); fi
+      ;;
+    low-confidence)
+      if grep -qiE '^(move|recommend)|i (would|recommend)|ask: [A-Za-z]+ (approves|moves|decides)' "$body"; then
+        echo "  ok   makes a recommendation"
+      else echo "  FAIL no recommendation"; fails=$((fails+1)); fi
+      if grep -qE '\?[[:space:]]*$' "$body"; then
+        echo "  FAIL leaves an open question"; fails=$((fails+1))
+      else echo "  ok   no open question"; fi
+      if grep -qiE 'not certain|not confirmed|could not reproduce|unverified|my read|% sure|not sure' "$body"; then
+        echo "  ok   states the confidence"
+      else echo "  FAIL hides the uncertainty"; fails=$((fails+1)); fi
+      if head -1 "$body" | grep -qE '\?$'; then
+        echo "  FAIL opens with a question"; fails=$((fails+1))
+      else echo "  ok   opens with the verdict"; fi
       ;;
     help-article|pr-description)
       echo "  (prose case: word and pattern rules only)"
